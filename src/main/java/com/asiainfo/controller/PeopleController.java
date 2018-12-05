@@ -1,5 +1,6 @@
 package com.asiainfo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.asiainfo.domain.People;
 import com.asiainfo.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,11 @@ public class PeopleController {
     @Autowired
     private PeopleService peopleService;
 
-    @RequestMapping(value = "/getAllPeople" , method = RequestMethod.POST , produces = "application/json")
-    public Object getAllPeople(People people) throws Exception {
+    @RequestMapping(value = "/getAllPeople" , method = RequestMethod.GET , produces = "application/json")
+    public Object getAllPeople() throws Exception {
         List<People> allPeople = peopleService.findAllPeople();
         Map<String,Object> map = new HashMap(16);
         map.put("data",allPeople);
-        return map;
+        return new JSONObject(map);
     }
 }

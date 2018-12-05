@@ -1,5 +1,7 @@
 package com.asiainfo.domain;
 
+import java.io.Serializable;
+
 /**
  * @ClassName People
  * @Description TODO
@@ -7,7 +9,8 @@ package com.asiainfo.domain;
  * @Date 2018/12/5 9:32
  * @Version 1.0
  **/
-public class People {
+public class People implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;
     private String name;
     private String age;
@@ -65,6 +68,50 @@ public class People {
         public People build() {
             return new People(this);
         }
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     @Override
