@@ -13,4 +13,7 @@ import java.util.List;
  */
 public interface PeopleService {
     List<People> findAllPeople() throws Exception;
+    int addPeople(People people) throws Exception;
+    int deletePeople(String id) throws Exception;
+    int updatePeople(People people) throws Exception;
 }

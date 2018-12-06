@@ -33,4 +33,24 @@ public class PeopleController {
         map.put("data",allPeople);
         return new JSONObject(map);
     }
+
+    @RequestMapping(value = "/addPeople" , method = RequestMethod.GET)
+    public Object addPeople(String id, String name, String age, String weight, String height) throws Exception {
+        People people = new People.Builder().id(id).name(name).age(age).weight(weight).height(height).build();
+        int i = peopleService.addPeople(people);
+        return i;
+    }
+
+    @RequestMapping(value = "/deletePeople" , method = RequestMethod.GET)
+    public Object deletePeople(String id) throws Exception {
+        int i = peopleService.deletePeople(id);
+        return i;
+    }
+
+    @RequestMapping(value = "/updatePeople" , method = RequestMethod.GET)
+    public Object updatePeople(String id,String name) throws Exception {
+        People people = new People.Builder().id(id).name(name).build();
+        int i = peopleService.updatePeople(people);
+        return i;
+    }
 }

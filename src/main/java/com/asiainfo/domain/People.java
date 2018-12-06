@@ -39,7 +39,7 @@ public class People implements Serializable {
         height = builder.height;
     }
 
-    private class Builder {
+    public static class Builder {
         private String id;
         private String name;
         private String age;
