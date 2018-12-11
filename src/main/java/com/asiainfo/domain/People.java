@@ -11,11 +11,11 @@ import java.io.Serializable;
  **/
 public class People implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String id;
-    private String name;
-    private String age;
-    private String weight;
-    private String height;
+    private String peopleId;
+    private String peopleName;
+    private String peopleAge;
+    private String peopleWeight;
+    private String peopleHeight;
 
     private People() {
     }
@@ -32,37 +32,37 @@ public class People implements Serializable {
     }
 
     private People(Builder builder) {
-        id = builder.id;
-        name = builder.name;
-        age = builder.age;
-        weight = builder.weight;
-        height = builder.height;
+        peopleId = builder.peopleId;
+        peopleName = builder.peopleName;
+        peopleAge = builder.peopleAge;
+        peopleWeight = builder.peopleWeight;
+        peopleHeight = builder.peopleHeight;
     }
 
     public static class Builder {
-        private String id;
-        private String name;
-        private String age;
-        private String weight;
-        private String height;
-        public Builder id(String val) {
-            id = val;
+        private String peopleId;
+        private String peopleName;
+        private String peopleAge;
+        private String peopleWeight;
+        private String peopleHeight;
+        public Builder peopleId(String val) {
+            peopleId = val;
             return this;
         }
-        public Builder name(String val) {
-            name = val;
+        public Builder peopleName(String val) {
+            peopleName = val;
             return this;
         }
-        public Builder age(String val) {
-            age = val;
+        public Builder peopleAge(String val) {
+            peopleAge = val;
             return this;
         }
-        public Builder weight(String val) {
-            weight = val;
+        public Builder peopleWeight(String val) {
+            peopleWeight = val;
             return this;
         }
-        public Builder height(String val) {
-            height = val;
+        public Builder peopleHeight(String val) {
+            peopleHeight = val;
             return this;
         }
         public People build() {
@@ -74,54 +74,54 @@ public class People implements Serializable {
         return serialVersionUID;
     }
 
-    public String getId() {
-        return id;
+    public String getPeopleId() {
+        return peopleId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPeopleId(String peopleId) {
+        this.peopleId = peopleId;
     }
 
-    public String getName() {
-        return name;
+    public String getPeopleName() {
+        return peopleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPeopleName(String peopleName) {
+        this.peopleName = peopleName;
     }
 
-    public String getAge() {
-        return age;
+    public String getPeopleAge() {
+        return peopleAge;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setPeopleAge(String peopleAge) {
+        this.peopleAge = peopleAge;
     }
 
-    public String getWeight() {
-        return weight;
+    public String getPeopleWeight() {
+        return peopleWeight;
     }
 
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public void setPeopleWeight(String peopleWeight) {
+        this.peopleWeight = peopleWeight;
     }
 
-    public String getHeight() {
-        return height;
+    public String getPeopleHeight() {
+        return peopleHeight;
     }
 
-    public void setHeight(String height) {
-        this.height = height;
+    public void setPeopleHeight(String peopleHeight) {
+        this.peopleHeight = peopleHeight;
     }
 
     @Override
     public String toString() {
         return "People{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age='" + age + '\'' +
-                ", weight='" + weight + '\'' +
-                ", height='" + height + '\'' +
+                "peopleId='" + peopleId + '\'' +
+                ", peopleName='" + peopleName + '\'' +
+                ", peopleAge='" + peopleAge + '\'' +
+                ", peopleWeight='" + peopleWeight + '\'' +
+                ", peopleHeight='" + peopleHeight + '\'' +
                 '}';
     }
 }

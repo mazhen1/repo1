@@ -22,21 +22,39 @@ public interface PeopleDao {
      * @return com.asiainfo.domain.People
      */
     @Results(id="peopleMap", value={
-            @Result(property = "id", column = "id"),
-            @Result(property = "name", column = "name"),
-            @Result(property = "age", column = "age"),
-            @Result(property = "weight", column = "weight"),
-            @Result(property = "height", column = "height")
+            @Result(property = "peopleId", column = "people_id"),
+            @Result(property = "peopleName", column = "people_name"),
+            @Result(property = "peopleAge", column = "people_age"),
+            @Result(property = "peopleWeight", column = "people_weight"),
+            @Result(property = "peopleHeight", column = "people_height"),
     })
-    @Select("select a.id, a.name, a.age, a.weight, a.height from t_people a")
+    @Select("select a.people_id, a.people_name, a.people_age, a.people_weight, a.people_height from t_people a")
     List<People> selectAllPeople();
 
-    @Insert("insert into t_people (id, name, age, weight, height) values (#{id}, #{name}, #{age}, #{weight}, #{height})")
+    @Insert("insert into t_people (people_id, people_name, people_age, people_weight, people_height) " +
+            "values (#{peopleId}, #{peopleName}, #{peopleAge}, #{peopleWeight}, #{peopleHeight})")
     int insertPeole(People People);
 
-    @Delete("delete from t_people where id = #{id}")
+    @Delete("delete from t_people where people_id = #{peopleId}")
     int deletePeople(String id);
 
-    @Update("update t_people set name = #{name} where id = #{id}")
+    @Update("<script>" +
+                "UPDATE t_people " +
+                "<set>" +
+                    "<if test=\"peopleName != null and peopleName != ''\">" +
+                        "people_name = #{peopleName}, " +
+                    "</if>" +
+                    "<if test=\"peopleAge != null and peopleAge != ''\">" +
+                        "people_age = #{peopleAge}, " +
+                    "</if>" +
+                    "<if test=\"peopleWeight != null and peopleWeight != ''\">" +
+                        "people_weight = #{peopleWeight}, " +
+                    "</if>" +
+                    "<if test=\"peopleHeight != null and peopleHeight != ''\">" +
+                        "people_height = #{peopleHeight}, " +
+                    "</if>" +
+                "</set>" +
+                "WHERE people_id = #{peopleId}" +
+            "</script>")
     int updatePeople(People people);
 }
